@@ -1,11 +1,10 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
 } from "firebase/auth";
-import { db } from "../firebase/config";
+import { auth } from "../firebase/config";
 
 import { useState, useEffect } from "react";
 
@@ -16,8 +15,6 @@ export const useAuthentication = () => {
   //cleanup
   //deal with memory leak
   const [cancelled, setCancelled] = useState(false);
-
-  const auth = getAuth();
 
   function checkIfIsCancelled() {
     if (cancelled) {
@@ -65,6 +62,41 @@ export const useAuthentication = () => {
     }
   };
 
+  //logout - sign out
+  const logout = () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  };
+
+  //login - sign in
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(false);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false);
+    } catch (error) {
+      let systemErrorMessage;
+
+      console.log(error);
+
+      if (error.message.includes("invalid-credential")) {
+        systemErrorMessage = "Credenciais inválidas.";
+      } else if (error.message.includes("too-many-requests")) {
+        systemErrorMessage = "Muitas tentativas. Tente novamente mais tarde.";
+      } else {
+        systemErrorMessage = "Ocorreu um erro, por favor, tente mais tarde.";
+      }
+
+      setError(systemErrorMessage);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -74,5 +106,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
+    logout,
+    login,
   };
 };
