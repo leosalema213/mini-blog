@@ -64,6 +64,7 @@ textarea {
 }
 
 .btn {
+  display: block;
   background-color: #1a8918;
   color: #fff;
   text-align: center;
