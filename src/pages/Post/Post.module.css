@@ -1,0 +1,32 @@
+.post_container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post_container h1 {
+  font-size: 2.2em;
+  margin-bottom: 1em;
+}
+
+.post_container img {
+  max-width: 800px;
+  margin-bottom: 1em;
+}
+
+.post_container h3 {
+  margin-top: 1em;
+  margin-bottom: .2em;
+}
+
+.post_container .tags {
+  display: flex;
+  gap: 1em;
+}
+
+.tags span {
+  font-weight: bold;
+}
