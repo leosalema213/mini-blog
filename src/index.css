@@ -59,18 +59,17 @@ textarea {
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid #ccc;
-  padding: .8em 0;
+  padding: 0.8em 0;
   background-color: transparent;
 }
 
 .btn {
-  display: block;
+  display: inline-block;
   background-color: #1a8918;
   color: #fff;
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
-  width: 120px;
   font-weight: bold;
   border: none;
   padding: 10px 15px;
@@ -82,7 +81,7 @@ textarea {
   border-radius: 0;
 }
 
-.btn.btn-outline{
+.btn.btn-outline {
   background-color: transparent;
   border-radius: 0;
   color: #000;
@@ -90,16 +89,16 @@ textarea {
   padding: 7px 30px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #0f730c;
   color: #fff;
 }
 
-.btn.btn-outline:hover{
+.btn.btn-outline:hover {
   background-color: #000;
 }
 
-.brn.brn-danger {
+.btn.btn-danger:hover {
   background-color: #dc3545;
 }
 
@@ -113,5 +112,18 @@ button[disabled] {
   border: 1px solid #f5c6cb;
   padding: 5px;
   border-radius: 5px;
-  
+}
+
+.noposts {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.noposts p {
+  margin-bottom: 1.5em;
+}
+
+.noposts a {
+  width: 100%;
+  padding: 10px 26px;
 }
