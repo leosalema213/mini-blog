@@ -2,7 +2,7 @@ import styles from "./home.module.css";
 
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import { useFetchDocuments } from "../../hooks/useFetchDocumnts";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "../../components/PostDetail/PostDetail";
 
 const Home = () => {
