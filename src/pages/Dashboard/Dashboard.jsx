@@ -1,4 +1,5 @@
 import styles from "./Dashboard.module.css";
+import Swal from "sweetalert2";
 
 import { Link } from "react-router-dom";
 
@@ -17,6 +18,27 @@ const Dashboard = () => {
   } = useFetchDocuments("posts", null, uid);
 
   const { deleteDocument } = useDeleteDocument("posts");
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Deseja excluir esse post?",
+      text: "Essa ação não pode ser desfeita!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, desejo excluir!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Pronto!",
+          text: "Seu post foi deletado com sucesso",
+          icon: "success",
+        });
+
+        deleteDocument(id);
+      }
+    });
+  };
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -54,10 +76,10 @@ const Dashboard = () => {
                     to={`/posts/edit/${post.id}`}
                     className="btn btn-outline"
                   >
-                    Editar  
+                    Editar
                   </Link>
                   <button
-                    onClick={() => deleteDocument(post.id)}
+                    onClick={() => handleDelete(post.id)}
                     className="btn btn-outline btn-danger"
                   >
                     Excluir

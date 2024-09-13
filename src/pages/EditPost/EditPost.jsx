@@ -5,21 +5,30 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
+import { onAuthStateChanged } from "firebase/auth";
 
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 
 const EditPost = () => {
   const { id } = useParams();
-  const { document: post } = useFetchDocument("posts", id);
+  const { document: post, loading } = useFetchDocument("posts", id);
 
+  const [userUid, setUserUid] = useState("");
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
+  const { auth } = useAuthentication();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (post) {
+    onAuthStateChanged(auth, (user) => {
+      setUserUid(user.uid);
+    });
+
+    if (post && userUid === post.uid) {
       setTitle(post.title);
       setImage(post.image);
       setBody(post.body);
@@ -27,16 +36,14 @@ const EditPost = () => {
       const textTags = post.tagsArray.join(", ");
 
       setTags(textTags);
+    } else if (post && userUid !== post.uid) {
+      navigate("/dashboard");
     }
-  }, [post]);
+  }, [auth, loading, navigate, post, userUid]);
 
   const { user } = useAuthValue();
 
   const { updateDocument, response } = useUpdateDocument("posts");
-
-  const navigate = useNavigate();
-
-  const { createUser, error, loading } = useAuthentication();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,7 +114,11 @@ const EditPost = () => {
               />
             </label>
             <p className={styles.preview_title}>Preview da imagem atual:</p>
-            <img className={styles.image_preview} src={post.image} alt={post.title} />
+            <img
+              className={styles.image_preview}
+              src={post.image}
+              alt={post.title}
+            />
             <label>
               <span>Conteúdo:</span>
               <textarea
