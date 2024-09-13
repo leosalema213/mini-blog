@@ -2,6 +2,9 @@
 
 ## Projeto desenvolvido aplicando os conhecimentos apresentados no curso de React
 
+### Deploy
+https://mini-blog-nine-mauve.vercel.app/
+
 ### Front-End
 Projeto feito em React, as pricipais habilidades desenvolvidas é a criação de hooks, uso da Context API, uso de boas práticas, reutilização de componentes.
 
