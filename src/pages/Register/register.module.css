@@ -5,3 +5,20 @@
 .register p {
   color: #aaa;
 }
+
+@media (max-width: 768px) {
+
+  .register h1 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+  }
+
+  .register p {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .register {
+    padding: 0 20px;
+  }
+}
