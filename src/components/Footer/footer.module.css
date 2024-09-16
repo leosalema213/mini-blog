@@ -8,3 +8,9 @@
   background-color: #edf3f6;
   color: #000;
 }
+
+@media (max-width: 768px) {
+  .footer h3 {
+    text-align: center;
+  }
+}

@@ -1,9 +1,11 @@
-.navbar{
+.navbar {
   display: flex;
   box-shadow: 0px -2px 10px 0px rgba(0, 0, 0, 0.15);
   justify-content: space-between;
   align-items: center;
   padding: 1em 2em;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -12,7 +14,7 @@
 
 .brand span {
   font-weight: 900;
-  text-transform: uppercase;   
+  text-transform: uppercase;
 }
 
 .link_list {
@@ -22,13 +24,63 @@
 
 .link_list li {
   margin-right: 1em;
+  display: flex;
+  align-items: center;
 }
 
-.link_list li a {
-  padding: .4em .6em;
+.link_list li a,
+.link_list li button {
+  padding: 0.4em 0.6em;
+  display: block;
 }
 
 .active {
   background-color: #000;
   color: #fff;
+}
+
+.toggle_icon {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toggle_icon {
+    display: flex;
+    justify-content: end;
+  }
+
+  .navbar {
+    padding: 1em 1.3em;
+  }
+
+  .link_list {
+    width: 100%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+
+    &.open {
+      padding-top: 2rem;
+      height: auto;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+@media (max-width: 455px) {
+  .link_list {
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .link_list li,
+  .link_list li a,
+  .link_list li button {
+    width: 100%;
+    text-align: start;
+  }
 }

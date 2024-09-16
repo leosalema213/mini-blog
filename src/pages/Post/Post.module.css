@@ -30,3 +30,17 @@
 .tags span {
   font-weight: bold;
 }
+
+@media(max-width: 768px) {
+  .post_container img {
+    max-width: 100%;
+  }
+
+  .post_container {
+    padding: 1rem 1.3em;
+  }
+
+  .post_container h1 {
+    font-size: 1.3em;
+  }
+}

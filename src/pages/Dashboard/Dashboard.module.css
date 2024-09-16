@@ -44,3 +44,28 @@
   font: 0.7em;
   height: 34px;
 }
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1em 1.3em;
+  }
+
+  .dashboard h2 {
+    font-size: 1.8em;
+  }
+
+  .post_row {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .post_header {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .post_row button,
+  .post_row a {
+    margin: 6px 0;
+  }
+}

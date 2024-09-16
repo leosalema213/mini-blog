@@ -1,21 +1,29 @@
 import { NavLink } from "react-router-dom";
 
+import { FiMenu } from "react-icons/fi";
+
 import { useAuthentication } from "../../hooks/useAuthentication";
 
 import { useAuthValue } from "../../context/AuthContext";
 
 import styles from "./navbar.module.css";
+import { useState } from "react";
 
 const NavBar = () => {
   const { user } = useAuthValue();
-  const {logout} = useAuthentication();
+  const { logout } = useAuthentication();
+
+  const [active, setActive] = useState(false);
 
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
         Mini <span>blog</span>
       </NavLink>
-      <ul className={styles.link_list}>
+      <div className={styles.toggle_icon}>
+        <FiMenu onClick={() => setActive(!active)} />
+      </div>
+      <ul className={`${styles.link_list} ${active ? styles.open : ""}`}>
         <li>
           <NavLink
             to="/"

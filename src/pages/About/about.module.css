@@ -15,3 +15,13 @@
 .about a {
   padding: 10px 16px;
 }
+
+@media(max-width: 768px) {
+  .about {
+    padding: 2em 1.3em 0;
+  }
+
+  .about h2 {
+    font-size: 1.8em;
+  }
+}

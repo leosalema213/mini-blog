@@ -19,3 +19,25 @@
   width: 50%;
 }
 
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem 1.3rem;
+  }
+
+  .home h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .search_form {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+
+  .search_form input {
+    width: 100%;
+    padding-left: .4rem;
+  }
+  
+}
