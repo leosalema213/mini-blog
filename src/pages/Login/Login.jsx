@@ -61,12 +61,12 @@ const Login = () => {
         </label>
 
         {!loading && (
-          <button type="submit" className="btn">
+          <button type="submit" className="btn btn-full" >
             Entrar
           </button>
         )}
         {loading && (
-          <button disabled type="submit" className="btn">
+          <button disabled type="submit" className="btn btn-full">
             Aguarde...
           </button>
         )}

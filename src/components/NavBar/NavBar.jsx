@@ -26,14 +26,17 @@ const NavBar = () => {
       <ul className={`${styles.link_list} ${active ? styles.open : ""}`}>
         <li>
           <NavLink
+            onClick={() => setActive(false)}
             to="/"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Home
           </NavLink>
         </li>
+
         <li>
           <NavLink
+            onClick={() => setActive(false)}
             to="/about"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
@@ -44,6 +47,7 @@ const NavBar = () => {
           <>
             <li>
               <NavLink
+                onClick={() => setActive(false)}
                 to="/login"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
@@ -52,6 +56,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
+                onClick={() => setActive(false)}
                 to="/register"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
@@ -64,6 +69,7 @@ const NavBar = () => {
           <>
             <li>
               <NavLink
+                onClick={() => setActive(false)}
                 to="/posts/create"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
@@ -72,6 +78,7 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
+                onClick={() => setActive(false)}
                 to="/dashboard"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >

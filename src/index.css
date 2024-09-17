@@ -39,8 +39,9 @@ nav button:hover {
 
 form {
   max-width: 40%;
-  margin: 0 auto;
+  margin: 3em auto 0;
 }
+
 
 label {
   display: flex;
@@ -76,6 +77,10 @@ textarea {
   font-size: 1em;
   transition: 0.4s;
   display: block;
+}
+
+.btn-full {
+  width: 100%;
 }
 
 .btn.btn-dark {

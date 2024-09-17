@@ -112,12 +112,12 @@ const CreatePost = () => {
           />
         </label>
         {!response.loading && (
-          <button type="submit" className="btn">
+          <button type="submit" className="btn btn-full">
             Cadastrar
           </button>
         )}
         {response.loading && (
-          <button disabled type="submit" className="btn">
+          <button disabled type="submit" className="btn btn-full">
             Aguarde...
           </button>
         )}
