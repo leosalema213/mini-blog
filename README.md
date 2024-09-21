@@ -27,8 +27,12 @@ Site em estágio inicial, temos:
 - Cadastro :white_check_mark:
 - Página about :white_check_mark:
 
+### 0.2
+
+- Página home :white_check_mark:
+- CRUD de posts :white_check_mark:
+- Sistema de Perfil/dashboard :white_check_mark:
+
 Implementações para proximas versões
 
-- Página home  :x:
-- CRUD de posts :x:
-- Sistema de Perfil/dashboard :x:
+
